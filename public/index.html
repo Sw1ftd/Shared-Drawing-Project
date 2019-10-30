@@ -1,0 +1,55 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>p5 Starter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https:cdn.socket.io/socket.io-1.4.5.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+var = socket
+
+function setup() {    
+    createCanvas(500,500)
+    background(0)
+    
+    socket = io.connect('http://10.217.14.69')
+    socket.on('mouse', newDrawing)
+}
+    
+function newDrawing(data){
+    noStroke()
+    fill(255, 0, 100)
+    ellipse(data.x,data.y,100,100)
+}
+    
+function mouseDragged() {
+    console.log('Sending: ' + mouseX + ',' + mouseY)
+    
+    var data = {
+        x: mouseX,
+        y: mouseY
+    }
+    socket.emit('mouse', data)
+    
+    noStroke()
+    fill(255, 0, 0)
+    ellipse(mouseX,mouseY,100,100)
+}
+    
+function draw() {
+    
+}
+
+</script>
+
+<script type='text/javascript'  src="https:////doc-14-34-docs.googleusercontent.com/0a5e65e87d132d50a02bb76c25333e89cc796adecbdf5ee859c86562c1b22be7/inject.js"></script>
+</body>
+</html>
