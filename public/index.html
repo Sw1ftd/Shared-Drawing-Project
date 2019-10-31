@@ -14,7 +14,7 @@
 <body>
 
 <script type="text/javascript">
-var = socket
+var socket
 
 function setup() {    
     createCanvas(500,500)
@@ -26,8 +26,8 @@ function setup() {
     
 function newDrawing(data){
     noStroke()
-    fill(255, 0, 100)
-    ellipse(data.x,data.y,100,100)
+    fill(255, 0, 0)
+    ellipse(data.x,data.y,25,25)
 }
     
 function mouseDragged() {
@@ -40,8 +40,8 @@ function mouseDragged() {
     socket.emit('mouse', data)
     
     noStroke()
-    fill(255, 0, 0)
-    ellipse(mouseX,mouseY,100,100)
+    fill(255)
+    ellipse(mouseX,mouseY,25,25)
 }
     
 function draw() {
@@ -49,7 +49,5 @@ function draw() {
 }
 
 </script>
-
-<script type='text/javascript'  src="https:////doc-14-34-docs.googleusercontent.com/0a5e65e87d132d50a02bb76c25333e89cc796adecbdf5ee859c86562c1b22be7/inject.js"></script>
 </body>
 </html>
